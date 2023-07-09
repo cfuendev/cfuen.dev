@@ -23,7 +23,12 @@ const makeTitle = title
 ---
 
 <!DOCTYPE html>
-<html lang="en" x-data="{ dark: false }" :class="dark ? 'dark' : ''" >
+<!--  -->
+<html
+  lang="en"
+  x-data="{ dark: false, darkAnim: false }"
+  :class="dark ? 'dark' : ''"
+  class="scroll-smooth">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />

@@ -1,42 +1,54 @@
 ---
 import { Picture } from "@astrojs/image/components";
-//import heroImage from "assets/hero.png";
 import Link from "@components/ui/link.astro";
 import { Icon } from "astro-icon";
+import { FramedImage } from "@components/cfuen/framedImage";
+import FramedIconSlideshow from "@components/cfuen/FramedIconSlideshow.astro";
 ---
 
-<main
-  class="grid lg:grid-cols-2 place-items-center pt-16 pb-8 md:pt-12 md:pb-24">
-  <div class="py-6 md:order-1 hidden md:block">
-    <Picture
-      src="https://instagram.fbog3-1.fna.fbcdn.net/v/t51.2885-15/350093741_742067864379375_4702900352673627055_n.heic?stp=dst-jpg_e35&_nc_ht=instagram.fbog3-1.fna.fbcdn.net&_nc_cat=103&_nc_ohc=8rDnHH1Jd_wAX_ceHvr&edm=ACWDqb8BAAAA&ccb=7-5&ig_cache_key=MzExMjc5NTc0NjgzMTE4NzI3Ng%3D%3D.2-ccb7-5&oh=00_AfAbvVZAd_IbuJxqFUc2tVSRe6zEGZLzDUwzMzKyg92YsA&oe=6486C83D&_nc_sid=640168"
-      alt="Astronaut in the air"
-      widths={[200, 400, 600]}
-      aspectRatio="4:3"
-      sizes="(max-width: 800px) 100vw, 620px"
-      loading="eager"
-      format="avif"
-    />
-  </div>
+<!-- grid lg:grid-cols-2 place-items-center -->
+<main class="flex flex-row pt-16 pb-8 md:pt-12 md:pb-24">
   <div>
     <h1
       class="text-5xl lg:text-6xl xl:text-7xl font-bold lg:tracking-tight xl:tracking-tighter">
       ¡Hola! Soy el Fullstack que buscabas.
     </h1>
     <p class="text-lg mt-4 max-w-xl dark:text-slate-300 text-slate-600">
-      Soy Juan Castillo, un desarrollador de software fullstack al que le apasiona crear productos altamente funcionales y atractivos.
-      <wbr> Desde herramientas internas hasta sitios de gran envergadura, tengo habilidades con las que, juntos, podemos crear tu software ideal.
+      Soy Juan Castillo, un desarrollador de software fullstack al que le
+      apasiona crear productos altamente funcionales y atractivos.
+      <wbr /> Desde herramientas internas hasta sitios de gran envergadura, tengo
+      habilidades con las que, juntos, podemos crear tu software ideal.
     </p>
     <div class="mt-6 flex flex-col sm:flex-row gap-3">
       <Link
         size="lg"
         style="outline"
         rel="noopener"
-        href="https://github.com/surjithctly/astroship"
-        class="flex gap-1 items-center justify-center font-semibold"
-        target="_blank">
+        href="#Skills"
+        class="flex gap-1 items-center justify-center font-semibold">
         ¿Qué habilidades tienes?
       </Link>
     </div>
+  </div>
+  <FramedIconSlideshow width="110px" height="512.5px" />
+  <div class="py-6 md:order-1 hidden md:block">
+    <FramedImage
+      src="https://i.imgur.com/r7bO8K3.png"
+      alt="Yo bien guapo"
+      width="500px"
+      aspectratio="1/1"
+      bgposition="center"
+    />
+    <!--
+    <Picture
+      src="https://instagram.fbog3-1.fna.fbcdn.net/v/t51.2885-15/353756388_756877806135534_7728904239566831728_n.heic?stp=dst-jpg_e35&_nc_ht=instagram.fbog3-1.fna.fbcdn.net&_nc_cat=106&_nc_ohc=y7IhrOpguE8AX-TK4i5&edm=ACWDqb8BAAAA&ccb=7-5&ig_cache_key=MzEyNTk3MzI5MDc0NTEyODAxNA%3D%3D.2-ccb7-5&oh=00_AfDdz9HxoOwi-VTGmipQjJC6myKvgYrtBPzjBkllKKF6bQ&oe=649ED147&_nc_sid=ee9879"
+      alt="Juan Castillo"
+      widths={[200, 400, 600]}
+      aspectRatio="4:3"
+      sizes="(max-width: 800px) 100vw, 620px"
+      loading="eager"
+      format="avif"
+    />
+    -->
   </div>
 </main>
