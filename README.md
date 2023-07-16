@@ -1,5 +1,7 @@
 # cfuen.dev - Cfuen's Portfolio Website
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/07c76189-70f0-4f9e-a72e-038afd5a2327/deploy-status)](https://app.netlify.com/sites/cfuendev/deploys)
+
 My portfolio website, which I'm building step-by-step, slowly rolling out releases to make sure I don't either procrastinate or scrap requirements late in development. I want to make sure it's up somewhere doing something, no matter if it doesn't yet have every planned feature.
 
 ### Stuff (Technologies + Resources) I used
