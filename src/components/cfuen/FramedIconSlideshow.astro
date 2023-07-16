@@ -1,0 +1,113 @@
+---
+const IURLs = await Astro.glob("../../assets/icons/*{.svg,.png}").then(
+    (files) =>
+        files.map((file) =>
+            file.default.src ? file.default.src : file.default
+        )
+);
+
+console.log(IURLs);
+
+const width = Astro.props.width;
+const height = Astro.props.height;
+---
+
+<script>
+    const slideshowShuffle = (out) => {
+        let delay = 0;
+        let arr = Array.from(document.querySelectorAll(".IconSlideshow > *"));
+        //arr.reverse();
+        arr.forEach((iconElm) => {
+            if (out) {
+                setTimeout(() => {
+                    iconElm.classList.replace("In", "Out");
+                }, delay);
+                delay = delay + 100;
+            }
+        });
+        delay = 0;
+        //arr.reverse();
+        arr.forEach((iconElm) => {
+            setTimeout(() => {
+                iconElm.classList.replace("Out", "In");
+            }, delay + 1000);
+            delay = delay + 100;
+        });
+    };
+
+    slideshowShuffle(false);
+    setInterval(() => slideshowShuffle(true), 5000);
+</script>
+
+<div class="FrameWrapper">
+    <div
+        class="IconSlideshow bg-white dark:bg-zinc-900"
+        x-init={`
+        `}
+        style={`width: ${width}; height: ${height}`}>
+        {IURLs.map((IURL) => <img class="dark:invert In" src={IURL} />)}
+    </div>
+    <div class="Frame" style={`width: ${width}; height: ${height}`}></div>
+</div>
+
+<style>
+    .FrameWrapper {
+        position: relative;
+        margin: 0 20px 0 50px;
+    }
+
+    .IconSlideshow {
+        border: 7px solid;
+        border-radius: 5px;
+        position: absolute;
+        top: 25px;
+        right: 25px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    @keyframes iconSlideshowIn {
+        from {
+            opacity: 0;
+            transform: translateX(50px);
+        }
+        to {
+        }
+    }
+
+    @keyframes iconSlideshowOut {
+        from {
+            opacity: 100%;
+        }
+        to {
+            opacity: 0;
+            transform: translateX(-50px);
+        }
+    }
+
+    .IconSlideshow {
+        overflow: hidden;
+    }
+
+    .IconSlideshow > *.In {
+        animation: iconSlideshowIn 100ms ease-in-out;
+        opacity: 100%;
+    }
+
+    .IconSlideshow > *.Out {
+        animation: iconSlideshowOut 100ms ease-in-out;
+        opacity: 0%;
+    }
+
+    .IconSlideshow > *:not(:last-child) {
+        padding-bottom: 30px;
+    }
+
+    .Frame {
+        border: 7px solid;
+        border-radius: 5px;
+        z-index: -1;
+    }
+</style>
